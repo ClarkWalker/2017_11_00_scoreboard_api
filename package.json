@@ -1,0 +1,24 @@
+{
+  "name": "2017_11_00_scoreboard_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClarkWalker/2017_11_00_scoreboard_api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClarkWalker/2017_11_00_scoreboard_api/issues"
+  },
+  "homepage": "https://github.com/ClarkWalker/2017_11_00_scoreboard_api#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1"
+  }
+}
