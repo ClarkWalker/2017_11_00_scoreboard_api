@@ -2,7 +2,7 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('player_score').del()
-    .then(function () {
+    .then(function() {
       // Inserts seed entries
       return knex('player_score').insert([
         {
@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
         {
           // id: 2,
           name: 'bob',
-          score: 234
+          score: 134
         },
         {
           // id: 3,
