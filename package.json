@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/ClarkWalker/2017_11_00_scoreboard_api#readme",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "nodemon": "^1.12.1"
+    "knex": "^0.14.1",
+    "nodemon": "^1.12.1",
+    "pg": "^7.4.0"
   }
 }
