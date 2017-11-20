@@ -48,7 +48,7 @@ router.patch('/player/score/:id', (req, res, next) => {
   console.log(`/player/score/${req.params.id}`);
   db.getPlayerId(req.params.id)
   .then((playerData) => {
-    playerData[0].score = Number(req.body.score)
+    playerData[0].score = Number(req.body.score);
     db.updatePlayerScore({score: playerData[0].score}, req.params.id)
     .then((data) => {
       res.send(playerData[0]);
