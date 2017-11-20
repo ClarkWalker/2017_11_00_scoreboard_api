@@ -29,7 +29,7 @@ function updatePlayerScore(newScore, playerId) {
 function deletePlayer(playerId) {
   return knex('player_score')
   .del()
-  .where('id', playerId)
+  .where('id', playerId);
 }
 
 module.exports = {
