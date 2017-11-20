@@ -4,7 +4,7 @@ require('dotenv').config();
 module.exports = {
   development: {
     client: 'postgresql',
-    connection: 'postgresql://localhost/galvanize_movies_A'
+    connection: 'postgresql://localhost/cws_scoreboard_api'
   },
 
   production: {
