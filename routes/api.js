@@ -52,7 +52,7 @@ router.patch('/player/score/:id', (req, res, next) => {
     db.updatePlayerScore({score: playerData[0].score}, req.params.id)
     .then((data) => {
       res.send(playerData[0]);
-    })
+    });
   });
 });
 
