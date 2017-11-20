@@ -16,8 +16,15 @@ function newPlayer(data) {
   .insert(data);
 }
 
+function updatePlayerScore(newScore, playerId) {
+  return knex('player_score')
+  .update(newScore)
+  .where('id', playerId);
+}
+
 module.exports = {
   getAllData,
   getPlayerId,
   newPlayer,
+  updatePlayerScore,
 };
