@@ -2,18 +2,27 @@ const express = require('express');
 const router = express.Router();
 const db = require('../database/queries.js'); // possable no js at the end
 
-// get request to /
+// gets all players
 router.get('/', (req, res, next) => {
-  // res.send('eureka') // confirmed in postman
+  console.log(`get: /`);
   db.getAllData()
   .then((data) => {
     res.send(data);
   });
 });
 
-//
+// gets one player
+router.get('/player/:id', (req, res, next) => {
+  console.log(`get: /player/${req.params.id}`);
+  db.getPlayerId(req.params.id)
+  .then((data) => {
+    res.send(data[0]);
+  });
+});
+
+// creates a new player
 router.post('/', (req, res, next) => {
-  console.log('req.body\n', req.body);
+  console.log('post: /');
   db.newPlayer(req.body)
   .then((data) => {
     db.getAllData()
@@ -23,35 +32,27 @@ router.post('/', (req, res, next) => {
   });
 });
 
-// gets one player
-router.get('/player/:id', (req, res, next) => {
-  console.log('req.params\n', req.params.id);
-  db.getPlayerId(req.params.id)
-  .then((data) => {
-    res.send(data[0]);
-  });
-});
-
-// // update a score of a specific player
-// router.put('/player/score/:id', (req, res, next) => {
-//   console.log('/player/score/:id');
-//   db.getPlayerId(req.params.id)
-//   .then((playerData) => {
-//     playerData[0].score = Number(req.body.score)
-//     db.updatePlayerScore(req.body, req.params)
-//     res.send(playerData[0]);
-//   });
-// });
-
 // update a score of a specific player
 router.patch('/player/score/:id', (req, res, next) => {
-  console.log(`/player/score/${req.params.id}`);
+  console.log(`patch: /player/score/${req.params.id}`);
   db.getPlayerId(req.params.id)
   .then((playerData) => {
     playerData[0].score = Number(req.body.score);
     db.updatePlayerScore({score: playerData[0].score}, req.params.id)
     .then((data) => {
       res.send(playerData[0]);
+    });
+  });
+});
+
+// deletes a player entry from the table
+router.delete('/player/:id', (req, res, next) => {
+  console.log(`delete/player/${req.params.id}`);
+  db.getAllData()
+  .then((data) =>  {
+    db.deletePlayer(req.params.id)
+    .then((nothing) => {
+      res.send(data);
     });
   });
 });
